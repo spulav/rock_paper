@@ -22,16 +22,13 @@
  			return playerChoice;
  		}
 
- 		let playerSelection = playerPlay();
- 		let computerSelection = computerPlay();
-
  		function playRound(player, computer) {
  			if (beats(player, computer) === true) {
- 				console.log("You win!")
- 			} else if beats(computer, player) === true {
- 				console.log("You lose!")
+ 				return `The computer chose ${computer}! You win!`
+ 			} else if (beats(computer, player) === true) {
+ 				return `The computer chose ${computer}! You lose!`
  			} else if (player === computer) {
- 				console.log("It's a tie!")
+ 				return `The computer chose ${computer}! It's a tie!`
  			}
  		}
 
@@ -43,7 +40,9 @@
  			}
  		}
 
- 		console.log(playRound(playerSelection, computerSelection))
+ 		console.log(playRound(playerPlay(), computerPlay()))
+ 		console.log(playRound(playerPlay(), computerPlay()))
+
 
 	</script>
 </body>
