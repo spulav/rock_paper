@@ -17,7 +17,15 @@
  			}
  		}
 
- 		// let playerSelection = prompt("Do you choose rock, paper, or scissors?").toLowerCase()
+ 		function playerPlay() {
+ 			let playerChoice = prompt("Do you choose rock, paper, or scissors?").toLowerCase();
+ 			return playerChoice;
+ 		}
+
+ 		let playerSelection = playerPlay();
+ 		let computerSelection = computerPlay();
+
+
  		// let computerSelection = computerPlay()
 
  		// function playRound(player, computer) {
