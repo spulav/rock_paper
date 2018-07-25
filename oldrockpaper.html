@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Title</title>
+</head>
+<body>
+	<script>
+ 		
+ 		function computerPlay() {
+ 			let randint = Math.random();
+ 			if (randint < .33) {
+ 				return "rock";
+ 			} else if (randint > .66) {
+ 				return "paper";
+ 			} else {
+ 				return "scissors";
+ 			}
+ 		}
+
+ 		function playerPlay() {
+ 			let playerChoice = prompt("Do you choose rock, paper, or scissors?").toLowerCase();
+ 			return playerChoice;
+ 		}
+
+ 		function playRound(player, computer) {
+ 			if (beats(player, computer) === true) {
+ 				console.log(`Player: ${player}, Computer: ${computer}. You win!`)
+ 				return "win"
+ 			} else if (beats(computer, player) === true) {
+ 				console.log(`Player: ${player}, Computer: ${computer}. You lose!`)
+ 				return "lose"
+ 			} else if (player === computer) {
+ 				console.log(`Player: ${player}, Computer: ${computer}. It's a tie!`)
+ 				return "tie"
+ 			}
+ 		}
+
+ 		function beats(player1, player2) {
+ 			if ((player1 === "rock" && player2 == "scissors") || (player1 === "paper" && player2 === "rock") || (player1 === "scissors" && player2 === "paper")) {
+ 				return true;
+ 			} else {
+ 				return false;
+ 			}
+ 		}
+
+		function checkWinner(compWins, playWins, ties) {
+			if (compWins > playWins) {
+				return "The Computer Wins The Whole Game!"
+			} else if (compWins < playWins) {
+				return "The Player Wins The Whole Game!"
+			} else if (compWins === playWins) {
+				return "It's a Tie! No One Wins The Whole Game!"
+			}
+		}
+
+ 		function game() {
+
+ 			let computerWins = 0;
+ 			let playerWins = 0;
+ 			let tieCount = 0
+
+ 			for(let i=0; i<5; i++){
+ 				let round = playRound(playerPlay(),computerPlay());
+
+ 				if (round == "win") {
+ 					playerWins += 1;
+ 				} else if (round == "lose") {
+ 					computerWins += 1;
+ 				} else if (round == "tie") {
+ 					tieCount += 1;
+ 				}
+
+ 				console.log(`Computer: ${computerWins} wins, Player: ${playerWins} wins, Ties: ${tieCount}`)
+ 			}
+
+ 			console.log(checkWinner(computerWins, playerWins, tieCount))
+		}
+
+
+	</script>
+</body>
+</html>
